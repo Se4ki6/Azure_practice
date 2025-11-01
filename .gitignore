@@ -1,0 +1,140 @@
+# Terraform Files
+# =================
+
+# Terraform state files (contains sensitive information about your infrastructure)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform crash log files
+crash.log
+crash.*.log
+
+# Terraform variable files (contains sensitive data like subscription IDs, secrets)
+*.tfvars
+*.tfvars.json
+
+# Terraform plan files (may contain sensitive information)
+*.tfplan
+*.tfplan.*
+
+# Terraform CLI configuration files
+.terraformrc
+terraform.rc
+
+# Terraform directories
+.terraform/
+.terraform.lock.hcl
+
+# Azure CLI Files
+# ===============
+.azure/
+
+# Environment Files
+# =================
+.env
+.env.local
+.env.*.local
+
+# IDE and Editor Files
+# ====================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS Generated Files
+# ==================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Temporary Files
+# ===============
+*.tmp
+*.temp
+*.log
+*.bak
+
+# Sample Files
+# ============
+# Sample files that may contain personal information
+sample.txt
+test-files/
+uploads/
+
+# Backup Files
+# ============
+backups/
+*.backup
+
+# Documentation Build Files
+# ==========================
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Keep Template Files
+# ===================
+# Template files should be kept for reference
+!terraform.tfvars.template
+!sample.txt.template
+
+# Local Configuration
+# ===================
+local.settings.json
+local.properties
+
+# Azure Function Files (if applicable)
+# ====================================
+bin
+obj
+appsettings.json
+local.settings.json
+
+# Node.js (if using any Node.js tools)
+# ====================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python (if using any Python tools)
+# ===================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Security Keys and Certificates
+# ===============================
+*.pem
+*.key
+*.p12
+*.pfx
+*.cer
+*.crt
+
+# Personal Notes
+# ==============
+NOTES.md
+TODO.md
+personal-notes/
