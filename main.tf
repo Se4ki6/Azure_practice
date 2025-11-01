@@ -17,10 +17,10 @@ resource "azurerm_storage_account" "main" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 
-  min_tls_version          = "TLS1_2"
+  min_tls_version = "TLS1_2"
 
   # パブリックアクセスの設定
-  public_network_access_enabled = true
+  public_network_access_enabled   = true
   allow_nested_items_to_be_public = true
 
   tags = {
@@ -42,4 +42,5 @@ resource "azurerm_storage_blob" "main" {
   storage_container_name = azurerm_storage_container.main.name
   type                   = "Block"
   source                 = var.local_file_path
+  content_md5            = filemd5(var.local_file_path)
 }
