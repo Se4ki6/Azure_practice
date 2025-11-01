@@ -1,6 +1,7 @@
-# Azure CLI を使用した BLOB ストレージのCRUD操作ガイド
+# Azure CLI を使用した BLOB ストレージの CRUD 操作ガイド
 
 ## 目次
+
 1. [Azure CLI のセットアップ](#azure-cli-のセットアップ)
 2. [Azure へのログイン](#azure-へのログイン)
 3. [事前準備：環境情報の確認](#事前準備環境情報の確認)
@@ -267,7 +268,7 @@ az storage blob download `
   --no-progress | Out-String
 ```
 
-### 7. ファイルのURL取得（SAS トークン付き）
+### 7. ファイルの URL 取得（SAS トークン付き）
 
 ```powershell
 # 1時間有効なSASトークン付きURLを生成
@@ -485,7 +486,7 @@ az storage blob list `
 $count = (az storage blob list `
   --container-name uploads `
   --account-name azuretrainingsekishirost `
-  --query "length(@)") 
+  --query "length(@)")
 
 Write-Host "ファイル数: $count"
 ```
@@ -507,7 +508,7 @@ az storage blob list `
 $totalSize = (az storage blob list `
   --container-name uploads `
   --account-name azuretrainingsekishirost `
-  --query "sum([].properties.contentLength)") 
+  --query "sum([].properties.contentLength)")
 
 $totalSizeMB = [math]::Round($totalSize / 1MB, 2)
 Write-Host "合計サイズ: $totalSizeMB MB"
@@ -553,6 +554,7 @@ az storage container set-permission `
 **原因**: リソースグループ、ストレージアカウント、またはコンテナが存在しない
 
 **解決策**:
+
 ```powershell
 # Terraform で作成されたリソースを確認
 terraform state list
@@ -566,6 +568,7 @@ terraform apply
 **原因**: 認証情報が正しくない、またはログインしていない
 
 **解決策**:
+
 ```powershell
 # 再ログイン
 az logout
@@ -583,6 +586,7 @@ az account set --subscription "0d9ca316-2899-4a10-b81f-3c2cc3ed31f6"
 **原因**: 認証情報が設定されていない
 
 **解決策**:
+
 ```powershell
 # 環境変数を設定
 $env:AZURE_STORAGE_ACCOUNT = "azuretrainingsekishirost"
@@ -602,6 +606,7 @@ az storage blob upload `
 **原因**: 上書き防止オプションが設定されている
 
 **解決策**:
+
 ```powershell
 # 上書きを許可
 az storage blob upload `
@@ -616,6 +621,7 @@ az storage blob upload `
 **原因**: 大きなファイルまたは多数のファイル
 
 **解決策**:
+
 ```powershell
 # 並列アップロードを使用
 az storage blob upload `
@@ -636,6 +642,7 @@ az storage blob upload-batch `
 **原因**: PowerShell の環境変数は現在のセッションのみ有効
 
 **解決策**:
+
 ```powershell
 # PowerShell プロファイルに追加（永続化）
 notepad $PROFILE
@@ -699,7 +706,7 @@ az storage blob delete `
 
 ## まとめ
 
-このガイドでは、Azure CLI を使用した BLOB ストレージの基本的なCRUD操作を学びました：
+このガイドでは、Azure CLI を使用した BLOB ストレージの基本的な CRUD 操作を学びました：
 
 - **Create**: `az storage blob upload` でファイルをアップロード
 - **Read**: `az storage blob list` と `az storage blob download` でファイルを確認・ダウンロード
