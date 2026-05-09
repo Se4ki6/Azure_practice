@@ -1,0 +1,21 @@
+# Azure - プロジェクトコンテキスト
+
+## 目的
+
+Azure × Terraform 学習プロジェクト。Blob ストレージ + 基本インフラ一式 を段階的に構築する過程で、Azure × Terraform の主要概念を 5 つの Phase に分けて学ぶ。
+
+## 最重要ルール
+
+- **勝手に実装を進めない**: 各ステップで解説 → ユーザー確認 → 実装の順序を守る
+- **質疑応答はdocsに残す**: `docs/learning/phase{N}/task{M}/` にトピック別mdで記録
+- **referenceは別md**: 深掘り情報は `reference/` ディレクトリに分離
+
+## 現在の進捗
+
+Phase 1 の学習準備段階。詳細は `docs/LEARNING_CONTEXT.md` を参照。
+
+## ドキュメント構成
+
+- `plans/` — Phase設計書、実装計画
+- `docs/learning/` — 学習ノート（Phase/Task別）
+- `docs/LEARNING_CONTEXT.md` — 学習フローの全体像、進捗、ドキュメントルール
