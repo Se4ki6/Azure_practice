@@ -88,6 +88,63 @@
 
 ---
 
+### [2026-05-09] Phase 2 / Task 1 — Q3 `storage_account_id` を使うべき理由
+
+**問題**: `storage_account_name`（旧）ではなく `storage_account_id`（新）を使うべき理由を2つ説明せよ。また使い続けるとどうなるか。
+**当時の回答**: ここわかっていない
+**模範解答の要点**:
+- ① 非推奨（Deprecated）のため将来のバージョンで削除される
+- ② `storage_account_id` を使うと Terraform が明示的な依存関係を認識し、SA → Container の作成順を自動解決する
+- 使い続けると将来の provider アップグレード時に突然 apply が壊れる
+**参考**:
+- [azurerm_storage_container — Terraform Registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container)
+**関連ノート**: [docs/learning/phase2/task1/03-storage-container.md](docs/learning/phase2/task1/03-storage-container.md)
+
+---
+
+### [2026-05-09] Phase 2 / Task 1 — Q4 `container_access_type` の `container` の意味
+
+**問題**: `container_access_type` の `private` / `blob` / `container` の違いを説明し、どれを選ぶべきか答えよ。
+**当時の回答**: private は制限あり、blob はURL閲覧可能、container は不明
+**模範解答の要点**:
+- `private`: 認証済みユーザーのみ
+- `blob`: URL を知っていれば匿名でファイルを読める
+- `container`: ファイルの匿名読み取り + コンテナ内ファイル一覧も匿名取得可能
+- 学習・本番問わず `private` が推奨
+**参考**:
+- [azurerm_storage_container — Terraform Registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_container)
+**関連ノート**: [docs/learning/phase2/task1/03-storage-container.md](docs/learning/phase2/task1/03-storage-container.md)
+
+---
+
+### [2026-05-09] Phase 2 / Task 1 — Q5 `primary_access_key` を output する際の設定
+
+**問題**: `primary_access_key` を output で出力するとき何を設定すべきか。忘れるとどうなるか。
+**当時の回答**: キーが露出してしまう（正解）。設定すべき項目（sensitive = true）への言及なし
+**模範解答の要点**:
+- `sensitive = true` を output ブロックに付ける
+- 付け忘れると terraform plan/apply の CLIログにキーが平文で出力される
+**参考**:
+- [azurerm_storage_account — Terraform Registry](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/storage_account)
+**関連ノート**: [docs/learning/phase2/task1/02-storage-account.md](docs/learning/phase2/task1/02-storage-account.md)
+
+---
+
+### [2026-05-09] Phase 2 / Task 1 — Q6 Resource Group と .sln の相違点（RBAC・コスト管理）
+
+**問題**: Resource Group と C# .sln の共通点と異なる点（3つ）を説明せよ。
+**当時の回答**: 削除の連鎖の違いのみ正解。RBAC・コスト管理の違いが未回答
+**模範解答の要点**:
+- 共通点: 複数のものを一まとめにする入れ物構造
+- 相違① 削除: .sln を消してもプロジェクトは残る。RG を消すと中のリソースが全部消える
+- 相違② RBAC: RG 単位でアクセス権限を設定できる（.sln にはない）
+- 相違③ コスト管理: RG 単位でコストを集計・分析できる（.sln にはない）
+**参考**:
+- [Azure Resource Group とは — Microsoft Docs](https://learn.microsoft.com/ja-jp/azure/azure-resource-manager/management/manage-resource-groups-portal)
+**関連ノート**: [docs/learning/phase2/task1/reference/resource-group-vs-csharp-sln.md](docs/learning/phase2/task1/reference/resource-group-vs-csharp-sln.md)
+
+---
+
 ## 習得済み
 
 <!-- 再出題で正解した問題をここに移動（日付更新） -->
