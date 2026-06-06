@@ -138,3 +138,11 @@ pip-delete-this-directory.txt
 NOTES.md
 TODO.md
 personal-notes/
+
+# Project Scratch / Cache
+# =======================
+# tavily スキルの Web 検索結果の出力先（実行ごとに生成されるスクラッチ）
+temp/
+
+# Claude スキルの実行ログ・キャッシュ（成果物ではない）
+.claude/skills/*/src/logs/
