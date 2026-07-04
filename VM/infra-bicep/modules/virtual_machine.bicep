@@ -10,13 +10,12 @@ param vmName string
 @description('デプロイ先リージョン')
 param location string
 
-@description('VM サイズ。学習用は B1s 推奨（最小・最安）')
+@description('VM サイズ。B系はjapaneastで在庫切れのため2コア汎用を採用')
 @allowed([
-  'Standard_B1s'
-  'Standard_B1ls'
-  'Standard_B2ats_v2'
+  'Standard_D2as_v4'
+  'Standard_D2s_v3'
 ])
-param vmSize string = 'Standard_B1s'
+param vmSize string = 'Standard_D2as_v4'
 
 @description('SSH ログインに使う管理ユーザー名')
 @minLength(1)

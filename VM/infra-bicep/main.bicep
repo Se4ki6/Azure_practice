@@ -27,11 +27,10 @@ param environment string
 @description('デプロイ先リージョン（subscription スコープのため resourceGroup().location は使えない）')
 param location string
 
-@description('VM サイズ。学習用は B1s 推奨（最小・最安）')
+@description('VM サイズ。B系(B1s等)は本サブスク/リージョンで在庫切れのため、japaneastで在庫確認できた2コア汎用を採用')
 @allowed([
-  'Standard_B1s'
-  'Standard_B1ls'
-  'Standard_B2ats_v2'
+  'Standard_D2as_v4'
+  'Standard_D2s_v3'
 ])
 param vmSize string
 

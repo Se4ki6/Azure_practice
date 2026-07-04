@@ -8,9 +8,9 @@ using './main.bicep'
 
 param namePrefix = 'vm'
 param environment = 'dev'
-param location = 'eastus'
+param location = 'japaneast'
 
-param vmSize = 'Standard_B1s'
+param vmSize = 'Standard_D2as_v4'
 param adminUsername = 'azureuser'
 
 // ダミー公開鍵。実デプロイ時に CLI 引数で必ず差し替える
