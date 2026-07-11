@@ -14,7 +14,7 @@ model: sonnet
 2. `.claude/rules/bicep-conventions.md` — 命名・タグ・セキュリティ規約（全コンポーネント共通・点検の基準）
 3. `.claude/rules/bicep-templates.md` — main.bicep / モジュール雛形（構造の妥当性確認の参考）
 4. レビュー対象の `.bicep` / `.bicepparam` 群
-5. 必要なら `Functions/infra/`（設計の元の Terraform 構成。命名・モジュール分割の対応確認）
+5. 必要なら `resources/functions/infra-terraform/`（設計の元の Terraform 構成。命名・モジュール分割の対応確認）
 
 ## 点検項目
 

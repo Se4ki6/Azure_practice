@@ -40,7 +40,7 @@ description: Bicep で Azure リソースを「企画から段階的に」作る
 - 作りたいもの・ゴール（例: Blob ストレージ + 監視一式）
 - 含めるリソース種別のあたり（曖昧でよい。計画段階で確定させる）
 - 環境・命名 prefix（既存 Terraform 構成に合わせるか）
-- **対象ディレクトリ**（学習モノレポなので、どこに作るかは重要。既存 `Functions/infra/` の Terraform 構成と1対1で揃える方針を基本にする）
+- **対象ディレクトリ**（学習モノレポなので、どこに作るかは重要。既存 `resources/functions/infra-terraform/` の Terraform 構成と1対1で揃える方針を基本にする）
 
 ### 2. 計画ファイル作成
 
@@ -53,7 +53,7 @@ description: Bicep で Azure リソースを「企画から段階的に」作る
 <何を・なぜ作るか。1〜3行>
 
 ## 対象ディレクトリ
-<例: Functions/infra-bicep/  既存 Terraform 構成との対応も書く>
+<例: resources/functions/infra-bicep/  既存 Terraform 構成との対応も書く>
 
 ## リソース一覧
 | リソース | 種別 (Microsoft.*) | apiVersion | 役割 |
@@ -147,4 +147,4 @@ az deployment group what-if `
 - main.bicep / モジュール雛形: `.claude/rules/bicep-templates.md`
 - 公式 docs 調査: `use-tavily` スキル
 - 計画ファイル置き場: `plans/`
-- 既存 Terraform 構成（設計の元）: `Functions/infra/`
+- 既存 Terraform 構成（設計の元）: `resources/functions/infra-terraform/`

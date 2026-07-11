@@ -20,11 +20,13 @@ Azure を学ぶために、**実際に Azure リソースを立てて動かす**
 
 - **Bicep でリソースを企画から作る**: `/bicep-orchestrator`
   （インタビュー → 計画 → 実装は bicep-coder agent、レビューは bicep-reviewer agent に委譲）
-- **Terraform でリソースを作る**: 既存構成 `Functions/infra/` をベースに編集
+- **Terraform でリソースを作る**: 既存構成 `resources/functions/infra-terraform/` をベースに編集
 - **IaC 共通の規約・雛形**: `.claude/rules/`（`bicep-conventions.md` / `bicep-templates.md`）
 
 ## ドキュメント構成
 
+- `resources/{リソース名}/` — リソースごとの実装（`infra-terraform/` / `infra-bicep/` / `app/` 等）
 - `plans/` — 実装計画
 - `docs/{リソース名}/` — リソースごとの解説・Q&A（深掘りは `reference/` に分離）
+- `zenn/plan/` `zenn/publish/` — Zenn 記事の構成案・下書き（`zenn` スキル参照）
 - `.claude/rules/` — IaC 共通の規約・雛形

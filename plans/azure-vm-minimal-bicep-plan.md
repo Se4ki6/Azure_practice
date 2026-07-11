@@ -9,7 +9,7 @@ Azure VM を **最小構成・最小スペック**で立て、Bicep の書き方
 ## 対象ディレクトリ
 
 ```
-VM/infra-bicep/
+resources/vm/infra-bicep/
 ├── main.bicep                 ← targetScope='subscription'。RG + module 呼び出し
 ├── main.bicepparam            ← 環境ごとのパラメータ（SSH 公開鍵・許可元 IP はダミー）
 └── modules/
@@ -18,7 +18,7 @@ VM/infra-bicep/
     └── auto_shutdown.bicep    ← DevTestLab schedule（自動シャットダウン）
 ```
 
-既存 `Functions/infra/`（Terraform）とは別系統の学習領域として `VM/infra-bicep/` を新設する。
+既存 `resources/functions/infra-terraform/`（Terraform）とは別系統の学習領域として `resources/vm/infra-bicep/` を新設する。
 Terraform `modules/` と Bicep `modules/` を1対1で揃える方針自体は維持（Functions 側と同じ思想）。
 
 ## リソース一覧
@@ -137,13 +137,13 @@ main.bicep (targetScope='subscription')
 
 ```powershell
 # 構文 / lint（常に通す）
-az bicep build --file VM/infra-bicep/main.bicep
+az bicep build --file resources/vm/infra-bicep/main.bicep
 
 # 差分プレビュー（subscription スコープ）
 az deployment sub what-if `
   --location eastus `
-  --template-file VM/infra-bicep/main.bicep `
-  --parameters VM/infra-bicep/main.bicepparam `
+  --template-file resources/vm/infra-bicep/main.bicep `
+  --parameters resources/vm/infra-bicep/main.bicepparam `
   --parameters sshPublicKey="$(Get-Content $HOME\.ssh\id_ed25519.pub -Raw)" `
   --parameters allowedSshSourceAddressPrefix="<自分の IP>/32"
 ```

@@ -131,8 +131,8 @@ Functions/
 
 補足:
 
-- 既存の [Blob/main.tf](Blob/main.tf) とは分けて、Functions 用に独立したディレクトリを切る
-- ルートの [Functions](Functions) は空なので、Functions 用の構成をここから切れる
+- 既存の [resources/blob/infra-terraform/main.tf](../resources/blob/infra-terraform/main.tf) とは分けて、Functions 用に独立したディレクトリを切る
+- Functions 用の構成は `resources/functions/` 配下に切る
 - アプリ側は Python を採用し、Azure Functions の入口ファイルは薄く、実処理は `src/main.py` 以下へ寄せる
 
 ## 実装ステップ
@@ -264,14 +264,14 @@ Terraform apply が成功しても、関数コードを publish していなけ�
 
 ## 次に作るファイル候補
 
-1. `Functions/infra/main.tf`
-2. `Functions/infra/modules/resource_group/main.tf`
-3. `Functions/infra/modules/storage_account/main.tf`
-4. `Functions/infra/modules/monitoring/main.tf`
-5. `Functions/infra/modules/function_app/main.tf`
-6. `Functions/app/function_app.py`
-7. `Functions/app/src/main.py`
-8. `Functions/app/src/handlers/hello.py`
+1. `resources/functions/infra-terraform/main.tf`
+2. `resources/functions/infra-terraform/modules/resource_group/main.tf`
+3. `resources/functions/infra-terraform/modules/storage_account/main.tf`
+4. `resources/functions/infra-terraform/modules/monitoring/main.tf`
+5. `resources/functions/infra-terraform/modules/function_app/main.tf`
+6. `resources/functions/app/function_app.py`
+7. `resources/functions/app/src/main.py`
+8. `resources/functions/app/src/handlers/hello.py`
 
 ## 参考
 
