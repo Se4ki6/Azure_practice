@@ -8,6 +8,7 @@
   - [modules/network.bicep](../infra-bicep/modules/network.bicep) … VNet / Subnet / NSG / Public IP / NIC
   - [modules/virtual_machine.bicep](../infra-bicep/modules/virtual_machine.bicep) … VM本体 / OSディスク
   - [modules/auto_shutdown.bicep](../infra-bicep/modules/auto_shutdown.bicep) … 自動シャットダウン
+- 深掘り: [NSG / VNet / Subnet / Public IP / NIC の関係性](reference/nsg-vnet-subnet-pip-nic.md)（NSGの評価順序、踏み台/3層構成のユースケース）
 
 ## 進め方
 
